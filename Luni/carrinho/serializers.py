@@ -6,5 +6,5 @@ from rest_framework import serializers
 class CarrinhoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Carrinho
-        fields = '_all_'
+        fields = '__all__'
         
