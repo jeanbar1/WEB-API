@@ -93,3 +93,13 @@ def remove_estampa(request, id):
     if estampa: estampa.delete()
     
     return redirect('listar_estampas')
+
+
+# api
+from .models import Estampa
+from .serializer import EstampaSerializer
+from rest_framework import viewsets
+
+class EstampaViewSet(viewsets.ModelViewSet):
+    queryset = Estampa.objects.all()
+    serializer_class = EstampaSerializer

@@ -3,7 +3,8 @@ from django.shortcuts import redirect, render
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-
+from rest_framework import routers
+from estampa.views import EstampaViewSet
 
 def error_handler(request, exception=None, status_code=None):
 
@@ -39,6 +40,9 @@ handler404 = error_handler
 handler500 = error_handler
 
 
+router = routers.DefaultRouter()
+router.register(r'estampas', EstampaViewSet)
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("principal.urls"), name="index"),
@@ -48,6 +52,11 @@ urlpatterns = [
     path("carrinho/", include("carrinho.urls"), name='carrinho'),
     path("pedido/", include("pedido.urls"), name='pedido'),
     path("accounts/", include("django.contrib.auth.urls")),
+
+    # api urls
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    path('', include(router.urls)),
 ]
 
 if settings.DEBUG:
