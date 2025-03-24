@@ -137,3 +137,17 @@ def pedido(request, id):
     
     messages.error(request, 'Você não tem permissão para acessar esta página.')
     return redirect("listar_pedidos")
+
+
+# api view
+from .models import Pedido, ItemPedido
+from .serializer import ItemPedidoSerializer, PedidoSerializer
+from rest_framework import viewsets
+
+class PedidoViewSet(viewsets.ModelViewSet):
+    queryset = Pedido.objects.all()
+    serializer_class = PedidoSerializer
+
+class ItemPedidoViewSet(viewsets.ModelViewSet):
+    queryset = ItemPedido.objects.all()
+    serializer_class = ItemPedidoSerializer

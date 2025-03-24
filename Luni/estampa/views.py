@@ -95,7 +95,7 @@ def remove_estampa(request, id):
     return redirect('listar_estampas')
 
 
-# api
+# api view
 from .models import Estampa
 from .serializer import EstampaSerializer
 from rest_framework import viewsets
