@@ -151,3 +151,5 @@ class PedidoViewSet(viewsets.ModelViewSet):
 class ItemPedidoViewSet(viewsets.ModelViewSet):
     queryset = ItemPedido.objects.all()
     serializer_class = ItemPedidoSerializer
+    
+    

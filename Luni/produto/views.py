@@ -336,3 +336,12 @@ def remover_do_carrinho(request, id):
         item_carrinho.delete()
 
     return redirect('carrinho')
+
+    
+#API viewset
+from rest_framework import viewsets
+from produto
+
+class ProdutoViewSet(viewsets.ModelViewSet):
+    queryset = Produto.objects.all()
+    serializer_class = ProdutoViewSet
