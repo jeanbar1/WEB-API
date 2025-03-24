@@ -9,9 +9,11 @@ from usuario.views import UserViewSet
 from carrinho.views import CarrinhoViewSet, ItemCarrinhoViewSet
 from pedido.views import ItemPedidoViewSet, PedidoViewSet
 from produto.views import ProdutoViewSet, CategoriaProdutoViewSet
+#import do drf_spectacular
 
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
-
+# rotas para os endpoints d API
 router = routers.DefaultRouter()
 router.register(r'estampas', EstampaViewSet)
 router.register(r'usuario', UserViewSet)
@@ -36,7 +38,13 @@ urlpatterns = [
     # api urls
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
+    
+    # urls para o swagger
+    
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
 
 if settings.DEBUG:
