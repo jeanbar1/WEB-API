@@ -340,8 +340,8 @@ def remover_do_carrinho(request, id):
     
 #API viewset
 from rest_framework import viewsets
-from produto
+from .serializers import ProdutoSerializers
 
 class ProdutoViewSet(viewsets.ModelViewSet):
     queryset = Produto.objects.all()
-    serializer_class = ProdutoViewSet
+    serializer_class = ProdutoSerializers
