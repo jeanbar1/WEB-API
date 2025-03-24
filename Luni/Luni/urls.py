@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from estampa.views import EstampaViewSet
 from usuario.views import UserViewSet
+from carrinho.views import CarrinhoViewSet
 
 
 
@@ -13,6 +14,8 @@ from usuario.views import UserViewSet
 router = routers.DefaultRouter()
 router.register(r'estampas', EstampaViewSet)
 router.register(r'usuario', UserViewSet)
+router.register(r'carrinho', CarrinhoViewSet)
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
