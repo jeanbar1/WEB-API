@@ -8,7 +8,7 @@ from estampa.views import EstampaViewSet
 from usuario.views import UserViewSet
 from carrinho.views import CarrinhoViewSet
 from pedido.views import ItemPedidoViewSet, PedidoViewSet
-from produto.views import ProdutoViewSet
+from produto.views import ProdutoViewSet, CategoriaProdutoViewSet
 
 
 
@@ -19,6 +19,7 @@ router.register(r'carrinho', CarrinhoViewSet)
 router.register(r'pedido', PedidoViewSet)
 router.register(r'item-pedido', ItemPedidoViewSet)
 router.register(r'produto', ProdutoViewSet)
+router.register(r'categoria', CategoriaProdutoViewSet)
 
 
 urlpatterns = [
