@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from estampa.views import EstampaViewSet
 from usuario.views import UserViewSet
-from carrinho.views import CarrinhoViewSet
+from carrinho.views import CarrinhoViewSet, ItemCarrinhoViewSet
 from pedido.views import ItemPedidoViewSet, PedidoViewSet
 from produto.views import ProdutoViewSet, CategoriaProdutoViewSet
 
@@ -16,6 +16,7 @@ router = routers.DefaultRouter()
 router.register(r'estampas', EstampaViewSet)
 router.register(r'usuario', UserViewSet)
 router.register(r'carrinho', CarrinhoViewSet)
+router.register(r'item-carrinho', ItemCarrinhoViewSet)
 router.register(r'pedido', PedidoViewSet)
 router.register(r'item-pedido', ItemPedidoViewSet)
 router.register(r'produto', ProdutoViewSet)

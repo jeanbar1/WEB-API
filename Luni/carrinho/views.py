@@ -142,10 +142,14 @@ def confirmar_compra(request):
     
     
 # API View
-from .models import Carrinho
+from .models import Carrinho,ItemCarrinho
 from rest_framework import  viewsets
-from carrinho.serializers import CarrinhoSerializer
+from carrinho.serializers import CarrinhoSerializer, ItemCarrinhoSerializer
 
 class CarrinhoViewSet(viewsets.ModelViewSet):
     queryset = Carrinho.objects.all()
+    serializer_class = CarrinhoSerializer
+    
+class ItemCarrinhoViewSet(viewsets.ModelViewSet):
+    queryset = ItemCarrinho.objects.all()
     serializer_class = CarrinhoSerializer
