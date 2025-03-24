@@ -10,4 +10,8 @@ urlpatterns = [
     path('update/<int:id>/', views.edit_usuario, name='edit_usuario'), # edita um usuário
     path('delete/<int:id>/', views.remove_usuario, name='delete_usuario'), # remove um usuário
     path('receber_suporte_corporativo/', views.receber_suporte_corporativo, name='receber_suporte_corporativo'), # TODO: recebe suporte
+
+
 ]
+
+

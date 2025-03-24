@@ -196,3 +196,13 @@ def receber_suporte_corporativo(request):
     messages.error(request, 'Você não tem permissão para acessar esta página. Para ter uma conta corporativa entre em contato com luni.support@gmail.com')
     
     return redirect('home')
+
+
+
+# api
+from rest_framework import viewsets
+from .serializers import UserSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UserSerializer

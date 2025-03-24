@@ -5,7 +5,47 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
 from estampa.views import EstampaViewSet
+from usuario.views import UserViewSet
 
+
+
+
+router = routers.DefaultRouter()
+router.register(r'estampas', EstampaViewSet)
+router.register(r'usuario', UserViewSet)
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    # path("", include("principal.urls"), name="index"),
+    # path("user/", include("usuario.urls"), name='usuario'),
+    # path("produto/", include("produto.urls"), name='produto'),
+    # path("estampa/", include("estampa.urls"), name='estampa'),
+    # path("carrinho/", include("carrinho.urls"), name='carrinho'),
+    # path("pedido/", include("pedido.urls"), name='pedido'),
+    # path("accounts/", include("django.contrib.auth.urls")),
+
+    # api urls
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    path('', include(router.urls)),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 # def error_handler(request, exception=None, status_code=None):
 
 #     """
@@ -38,26 +78,3 @@ from estampa.views import EstampaViewSet
 # handler403 = error_handler
 # handler404 = error_handler
 # handler500 = error_handler
-
-
-router = routers.DefaultRouter()
-router.register(r'estampas', EstampaViewSet)
-
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    # path("", include("principal.urls"), name="index"),
-    # path("user/", include("usuario.urls"), name='usuario'),
-    # path("produto/", include("produto.urls"), name='produto'),
-    # path("estampa/", include("estampa.urls"), name='estampa'),
-    # path("carrinho/", include("carrinho.urls"), name='carrinho'),
-    # path("pedido/", include("pedido.urls"), name='pedido'),
-    # path("accounts/", include("django.contrib.auth.urls")),
-
-    # api urls
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-
-    path('', include(router.urls)),
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
